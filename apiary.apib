@@ -11,7 +11,7 @@ HOST: https://repos.api.brightcove.com/v1
 
 ###GET
 
-<a id="getList"></a>This will list the details for all repos in an account.
+<a id="getList"></a>This will list the details for all repos in an account
 
 + Parameters
 
@@ -45,13 +45,13 @@ HOST: https://repos.api.brightcove.com/v1
 
 ###GET
 
-<a id="getOne"></a>This will list the details for a single repository
+<a id="getOne"></a>This will retrieve the details for a single repository
 
 + Parameters
 
     + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
     
-    + repoName (required string `MyRepoName` ... The name of the repo for which to list details
+    + repoName (required string `MyRepoName`) ... The name of the repo for which to list details
 
 + Headers
 
@@ -72,11 +72,13 @@ HOST: https://repos.api.brightcove.com/v1
 
 ### PUT
 
+<a id="create"></a>This will list the details for a single repository Response 200 The response will be 200 if the repository already existed
+
 + Parameters
 
     + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
     
-    + repoName (required string `MyRepoName` ... The name of the repo for which to list details
+    + repoName (required string `MyRepoName`) ... The name of the repo for which to list details +The response will be 201 if the repository was successfully created
 
 
 + Headers
@@ -92,17 +94,13 @@ HOST: https://repos.api.brightcove.com/v1
     
 + Response 200
 
-        +The response will be 200 if the repository already existed
-    
-        +Body
+    + Body
     
             { "name": "[repo name]", "public_url": "[public_url]" }
 
 + Response 201
 
-        +The response will be 201 if the repository was successfully created
-    
-        +Body
+    + Body
     
             { "name": "[repo name]", "public_url": "[public_url]" }
                     
