@@ -13,9 +13,10 @@ HOST: https://repos.api.brightcove.com/v1
 + Parameters
 
     + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
-    
-    + repoName (required string `Test Repository` ... The repository name can be whatever you'd like it to be
-    
+
+    + repoName (required string `RepositoryName`) ... The name whatever you'd like it to be 
+
+
 + Headers
 
             Authorization: Bearer {token}
@@ -27,19 +28,19 @@ HOST: https://repos.api.brightcove.com/v1
 
             {}
     
-+ Response 200 (application/json)
++ Response 200
 
-    +The response will be 200 if the repository already existed
+        +The response will be 200 if the repository already existed
     
-    +Body
+        +Body
     
             { "name": "[repo name]", "public_url": "[public_url]" }
 
-+ Response 201 (application/json)
++ Response 201
 
-    +The response will be 201 if the repository was successfully created
+        +The response will be 201 if the repository was successfully created
     
-    +Body
+        +Body
     
             { "name": "[repo name]", "public_url": "[public_url]" }
                     
