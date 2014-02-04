@@ -7,14 +7,76 @@ HOST: https://repos.api.brightcove.com/v1
 
 # Group Configurations
 
-## Creating and Retrieving Repositories [/accounts/{accountId}/repos/{repoName}]
-### GET
+## Retrieving Repositories [/accounts/{accountId}/repos]
+
+###GET
+
+<a id="getList"></a>This will list the details for all repos in an account.
 
 + Parameters
 
     + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
 
-    + repoName (required string `RepositoryName`) ... The name whatever you'd like it to be 
++ Headers
+
+            Authorization: Bearer {token}
+            Content-Type: application/json
+
++ Request
+
+    + Body
+
+            {}
+
++ Response 200
+
+    + Body
+
+            {
+                repos: 
+                [
+                    { "name": "[repo name]", "public_url": "[public_url]" },
+                    { "name": "[repo name]", "public_url": "[public_url]" },
+                    { "name": "[repo name]", "public_url": "[public_url]" }
+                ]
+            }
+
+## Retrieving and Creating a Repository [/accounts/{accountId}/repos/{repoName}]
+
+###GET
+
+<a id="getOne"></a>This will list the details for a single repository
+
++ Parameters
+
+    + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
+    
+    + repoName (required string `MyRepoName` ... The name of the repo for which to list details
+
++ Headers
+
+            Authorization: Bearer {token}
+            Content-Type: application/json
+
++ Request
+
+    + Body
+
+            {}
+
++ Response 200
+
+    + Body
+
+            { "name": "[repo name]", "public_url": "[public_url]" }
+
+### PUT
+
++ Parameters
+
+    + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
+    
+    + repoName (required string `MyRepoName` ... The name of the repo for which to list details
 
 
 + Headers
