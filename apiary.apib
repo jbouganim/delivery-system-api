@@ -5,44 +5,42 @@ HOST: https://repos.api.brightcove.com/v1
 <p>The Delivery System APIs allow for the management and deployment of a group of files, called a repository.  These files are managed through REST APIs and through git.  These files are delivered, on every "git push", to players.brightcove.com.</p>
 <p>If you haven't gone through the <a href="//docs.brightcove.com/en/video-cloud/players/guides/playertour.html">player tour</a>, it's highly suggested you start there.  You'll get security set up, learn some of the basics of the system, and then be ready to dive in further here.</p>
 
-# Group Notes
-Notes related resources of the **Notes API**
+# Group Configurations
 
-## Notes Collection [/notes]
-### List all Notes [GET]
-+ Response 200 (application/json)
-
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
-
-### Create a Note [POST]
-+ Request (application/json)
-
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
+## Creating and Retrieving Repositories [/accounts/{accountId}/repos/{repoName}]
+### GET
 
 + Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
 
-### Retrieve a Note [GET]
-+ Response 200 (application/json)
+    + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
+    
+    + repoName (required string `Test Repository` ... The repository name can be whatever you'd like it to be
+    
++ Headers
 
-    + Header
+            Authorization: Bearer {token}
+            Content-Type: application/json
 
-            X-My-Header: The Value
++ Request
 
     + Body
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+            {}
+    
++ Response 200 (application/json)
 
-### Remove a Note [DELETE]
-+ Response 204
+    +The response will be 200 if the repository already existed
+    
+    +Body
+    
+            { "name": "[repo name]", "public_url": "[public_url]" }
+
++ Response 201 (application/json)
+
+    +The response will be 201 if the repository was successfully created
+    
+    +Body
+    
+            { "name": "[repo name]", "public_url": "[public_url]" }
+                    
+
