@@ -77,7 +77,7 @@ This will list the details for all repos in an account
 
 Retrieve, create and delete a single repo
 
-## GET/PUT to Create/Delete Single Repo [/accounts/{accountId}/repos/{repoName}]
+## GET/PUT to Create/DELETE Single Repo [/accounts/{accountId}/repos/{repoName}]
 
 ### GET
 
@@ -104,7 +104,11 @@ This will retrieve the details for a single repository
 
     + Body
 
-            { "name": "[repo name]", "public_url": "[public_url]" }
+            {
+              "name": "firstRepo",
+              "public_url": "http://players.brightcove.net/1507807800001/firstRepo",
+              "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/firstRepo"
+            }
 
 ### PUT
 
@@ -132,14 +136,21 @@ This will create a single repository, if it does not exist. A response of 200 me
 
     + Body
     
-            { "name": "[repo name]", "public_url": "[public_url]" }
+            {
+              "name": "newRepo",
+              "public_url": "http://players.brightcove.net/1507807800001/newRepo",
+              "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/newRepo"
+            }
 
 + Response 201
 
     + Body
     
-            { "name": "[repo name]", "public_url": "[public_url]" }
-            
+            {
+              "name": "newRepo",
+              "public_url": "http://players.brightcove.net/1507807800001/newRepo",
+              "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/newRepo"
+            }            
                     
 ### DELETE
 
