@@ -5,17 +5,19 @@ HOST: https://repos.api.brightcove.com/v1
 
 The Delivery System APIs allow for the management and deployment of a group of files, called a repository.  These files are managed through REST APIs and through git.  These files are delivered, on every "git push", to players.brightcove.com.
 
-If you haven't gone through the <a href="https://docs.brightcove.com/en/video-cloud/players/guides/playertour.html">player tour</a>, it's highly suggested you e start there.  You'll get security set up, learn some of the basics of the system, and then be ready to dive in further here.
+If you haven't gone through the <a href="http://docs.brightcove.com/en/video-cloud/player-management/guides/player-mgmt-quick-start.html">Quick Start to Player Management</a>, it's highly suggested you start there.  You'll get security set up, learn some of the basics of the system, and then be ready to dive in further here.
 
-## Service URL
+## Base URL
 
-The service URL for the Delivery System API is:
+The base URL for the Delivery System API is:
 
     https://repos.api.brightcove.com/v1
 
-# Group Configurations
+# Group View Repos
 
-## Get Repositories [/accounts/{accountId}/repos]
+Retrieve all repositories for an account
+
+## GET Repositories [/accounts/{accountId}/repos]
 
 ### GET
 
@@ -41,32 +43,41 @@ This will list the details for all repos in an account
     + Body
 
             {
-              "items": [{
+              "items": [
+              {
                 "name": "009bc3a8-bb3f-4f94-ae9c-8e9161dc0072_af909574-1b95-4167-8f5a-81939725e843",
-                "public_url": "http://players.brightcove.com/1507807800001/009bc3a8-bb3f-4f94-ae9c-8e9161dc0072_af909574-1b95-4167-8f5a-81939725e843"
-              }, {
+                "public_url": "http://players.brightcove.net/1507807800001/009bc3a8-bb3f-4f94-ae9c-8e9161dc0072_af909574-1b95-4167-8f5a-81939725e843",
+                "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/009bc3a8-bb3f-4f94-ae9c-8e9161dc0072_af909574-1b95-4167-8f5a-81939725e843"
+              },
+              {
                 "name": "009bc3a8-bb3f-4f94-ae9c-8e9161dc0072_default",
-                "public_url": "http://players.brightcove.com/1507807800001/009bc3a8-bb3f-4f94-ae9c-8e9161dc0072_default"
-              }, {
-                "name": "0181ea5c-5b4d-46f5-bae9-c16b092c20d3_8fdf315d-7a7c-401a-b46a-895fa9835164",
-                "public_url": "http://players.brightcove.com/1507807800001/0181ea5c-5b4d-46f5-bae9-c16b092c20d3_8fdf315d-7a7c-401a-b46a-895fa9835164"
-              }, {
-                "name": "0181ea5c-5b4d-46f5-bae9-c16b092c20d3_default",
-                "public_url": "http://players.brightcove.com/1507807800001/0181ea5c-5b4d-46f5-bae9-c16b092c20d3_default"
-              }, {
-                "name": "018451f7-40d0-41e2-8c41-72da8499ecf7_default",
-                "public_url": "http://players.brightcove.com/1507807800001/018451f7-40d0-41e2-8c41-72da8499ecf7_default"
-              }, {
-                "name": "028f4f4f-5487-44c6-ad91-678421cd3d9a_default",
-                "public_url": "http://players.brightcove.com/1507807800001/028f4f4f-5487-44c6-ad91-678421cd3d9a_default"
-              }, {
-                "name": "0464dbd0-2f9d-4fb2-a44a-a9c7cbd0b88d_878aff8f-5e67-4a10-8966-4f89c7c1b799",
-                "public_url": "http://players.brightcove.com/1507807800001/0464dbd0-2f9d-4fb2-a44a-a9c7cbd0b88d_878aff8f-5e67-4a10-8966-4f89c7c1b799"
+                "public_url": "http://players.brightcove.net/1507807800001/009bc3a8-bb3f-4f94-ae9c-8e9161dc0072_default",
+                "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/009bc3a8-bb3f-4f94-ae9c-8e9161dc0072_default"
+              },
+              ...
+              {
+                "name": "myRepoName",
+                "public_url": "http://players.brightcove.net/1507807800001/myRepoName",
+                "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/myRepoName"
+              },
+              {
+                "name": "repoTest",
+                "public_url": "http://players.brightcove.net/1507807800001/repoTest",
+                "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/repoTest"
+              },
+              {
+                "name": "testRepo",
+                "public_url": "http://players.brightcove.net/1507807800001/testRepo",
+                "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/testRepo"
               }],
-              "item_count": 7
+              "item_count": 282
             }
 
-## Get/Create/Delete Single Repository [/accounts/{accountId}/repos/{repoName}]
+# Group Manipulate Single Repo
+
+Retrieve, create and delete a single repo
+
+## GET/PUT to Create/Delete Single Repo [/accounts/{accountId}/repos/{repoName}]
 
 ### GET
 
