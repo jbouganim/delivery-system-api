@@ -11,7 +11,7 @@ If you haven't gone through the <a href="http://docs.brightcove.com/en/video-clo
 
 The base URL for the Delivery System API is:
 
-    https://repos.api.brightcove.com/v1
+    https://repos.api.brightcove.com
 
 # Group View Repos
 
@@ -86,7 +86,7 @@ This will retrieve the details for a single repository
 + Parameters
 
     + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
-    
+
     + repoName (required string `MyRepoName`) ... The name of the repo for which to list details
 
 + Request
@@ -117,8 +117,8 @@ This will create a single repository, if it does not exist. A response of 200 me
 + Parameters
 
     + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
-    
-    + repoName (required string `MyRepoName`) ... The name of the repo for which to list details 
+
+    + repoName (required string `MyRepoName`) ... The name of the repo for which to list details
 
 
 + Request
@@ -131,11 +131,11 @@ This will create a single repository, if it does not exist. A response of 200 me
     + Body
 
             {}
-    
+
 + Response 200
 
     + Body
-    
+
             {
               "name": "newRepo",
               "public_url": "http://players.brightcove.net/1507807800001/newRepo",
@@ -145,13 +145,13 @@ This will create a single repository, if it does not exist. A response of 200 me
 + Response 201
 
     + Body
-    
+
             {
               "name": "newRepo",
               "public_url": "http://players.brightcove.net/1507807800001/newRepo",
               "repo_url": "https://repos.api.brightcove.com/v1/accounts/1507807800001/repos/newRepo"
-            }            
-                    
+            }
+
 ### DELETE
 
 This will delete a single repository
@@ -159,8 +159,8 @@ This will delete a single repository
 + Parameters
 
     + accountId (required string `20318290001`) ... The Video Cloud account id (in older versions of Studio called the Publisher ID)
-    
-    + repoName (required string `MyRepoName`) ... The name of the repo to delete 
+
+    + repoName (required string `MyRepoName`) ... The name of the repo to delete
 
 + Request
 
@@ -170,11 +170,11 @@ This will delete a single repository
             Content-Type: application/json
 
     + Body
-    
+
             {}
 
 + Response 200
 
-    + Body    
+    + Body
 
             Successfully deleted repo MyRepoName.
